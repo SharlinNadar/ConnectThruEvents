@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- SweetAlert2 for alerts -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">ConnectThroughEvents</div>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="event-details.html">Event Details</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="tasks">
+            <h2>Manage Tasks</h2>
+            <ul id="task-list">
+                <!-- Dynamically populated tasks will appear here -->
+            </ul>
+            <button class="btn" onclick="showAddTaskDialog()">Add New Task</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ConnectThroughEvents. All rights reserved.</p>
+    </footer>
+
+    <script src="task-management.js"></script>
+</body>
+</html>

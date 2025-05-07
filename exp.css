@@ -1,0 +1,423 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+.logo-div{
+  display: flex;
+  align-items: center;
+}
+.logo{
+  height: 80px;
+  margin-left: 8px;
+}
+header {
+  background-color: #f53b57;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+ height: 90px;
+}
+
+header h1 {
+  margin: 0;
+}
+
+nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.toggle-filter-btn {
+  display: none;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.filters {
+  background-color: #fff;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.filters h2 {
+  margin-bottom: 20px;
+  margin-left: 150px;
+}
+
+.filters label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.filters select, .filters input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+}
+
+.filters button {
+  padding: 10px;
+  background-color: #f53b57;
+  color: white;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+}
+
+.filters button:hover {
+  background-color: #555;
+}
+
+.events-section {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.category {
+  margin-bottom: 30px;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.event-card {
+  text-align: center;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out;
+}
+
+
+.event-card:hover {
+  transform: translateY(-5px);
+}
+
+.event-card img {
+    display: block;         
+    width: 100%;        
+    border-radius: 8px;     
+    object-fit: cover; 
+}
+
+.card-content {
+  padding: 10px 0;
+}
+
+.card-content h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.card-content p {
+  margin-bottom: 10px;
+}
+
+.card-content a {
+  text-decoration: none;
+  background-color: #f53b57;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.card-content a:hover {
+  background-color: #555;
+}
+
+.see-more {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.see-more span {
+  margin-left: 5px;
+}
+
+/* Footer Styling */
+footer {
+  text-align: center;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  margin-top: auto; /* This ensures footer always stays at the bottom */
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .toggle-filter-btn {
+    display: block;
+  }
+
+  .filters {
+    width: 100%;
+    left: -100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    transition: 0.3s;
+  }
+
+  .filters.open {
+    left: 0;
+  }
+
+  .events-section {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* General Button Style */
+.btn {
+  background-color: #f53b57; /* Main button color */
+  color: white; /* Text color */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transition on hover */
+  text-align: center;
+  text-decoration: none; /* Remove underline for anchor links */
+  display: inline-block;
+}
+
+.btn:hover {
+  background-color: #d42f48; /* Darker shade of the button color on hover */
+  transform: scale(1.05); /* Slightly scale the button up */
+}
+
+.btn:active {
+  background-color: #b22d42; /* Even darker shade on button click */
+  transform: scale(0.98); /* Slightly scale the button down */
+}
+
+/* Specific Button Styles for Different Actions */
+.enroll-btn {
+  background-color: #f53b57;
+}
+
+.enroll-btn:hover {
+  background-color: #d42f48;
+}
+
+.fav-btn {
+  background-color: white;
+  border: 2px solid #d42f48;
+  border-radius: 50%;
+}
+
+.fav-btn:hover {
+  background-color: #d42f48;
+}
+
+.view-btn {
+  background-color: #f53b57;
+}
+
+.view-btn:hover {
+  background-color: #d42f48;
+}
+
+/* Optional: Style the button container */
+.btn-group {
+  display: flex;
+  gap: 10px; /* Add space between buttons */
+}
+/* Event Card Container */
+.events-section {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Event Card Styling */
+.event-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  overflow: hidden;
+  text-align: center;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Image Styling */
+.event-card img {
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.event-card img.error {
+  opacity: 0.5;
+}
+
+.card-content {
+  padding: 15px 0;
+}
+
+/* Title Styling */
+.card-content h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Event Details Styling */
+.card-content p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.card-content p strong {
+  color: #f53b57;
+}
+
+/* Price Label */
+.card-content .price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #f53b57;
+}
+
+/* Description Styling */
+.card-content p.description {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+/* Button Group */
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn {
+  background-color: #f53b57;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  display: inline-block;
+}
+
+.btn:hover {
+  background-color: #d42f48;
+  transform: scale(1.05);
+}
+
+.btn:active {
+  background-color: #b22d42;
+  transform: scale(0.98);
+}
+
+.enroll-btn {
+  background-color: #f53b57;
+}
+
+.enroll-btn:hover {
+  background-color: #d42f48;
+}
+
+.fav-btn {
+  background-color: white;
+  border: 2px solid #f53b57;
+  border-radius: 50%;
+  padding: 8px;
+}
+
+.fav-btn:hover {
+  background-color: #f53b57;
+  color: white;
+}
+
+.view-btn {
+  background-color: #f53b57;
+}
+
+.view-btn:hover {
+  background-color: #d42f48;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .event-card {
+    padding: 15px;
+  }
+
+  .card-content h3 {
+    font-size: 18px;
+  }
+
+  .card-content p {
+    font-size: 13px;
+  }
+}

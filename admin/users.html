@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Users</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Manage Users</h1>
+
+        <!-- Back Button -->
+        <div class="mb-3">
+            <a href="admin.html" class="btn btn-secondary">Back to Dashboard</a>
+        </div>
+
+        <!-- Search by Role -->
+        <div class="d-flex justify-content-between mb-3">
+            <div>
+                <input type="text" class="form-control" id="searchUser" placeholder="Search users...">
+            </div>
+            <div>
+                <select class="form-select" id="roleFilter">
+                    <option value="">Filter by Role</option>
+                    <option value="participant">Participant</option>
+                    <option value="manager">Manager</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Users Table -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                </tr>
+            </thead>
+            <tbody id="userTableBody">
+                <!-- Users will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript for search and filter functionality -->
+    <script>
+        // Fetch users from the API
+        async function fetchUsers() {
+            try {
+                const response = await fetch('http://localhost:5215/api/userandeventmanager/users');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const users = await response.json();
+                populateUserTable(users);
+            } catch (error) {
+                console.error('Error fetching user data:', error);
+            }
+        }
+
+        // Populate the table with user data
+        function populateUserTable(users) {
+            const tableBody = document.getElementById('userTableBody');
+            tableBody.innerHTML = ''; // Clear any existing rows
+
+            users.forEach((user, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${user.fullName}</td>
+                    <td>${user.email}</td>
+                    <td>${user.role}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Filter users by role
+        document.getElementById('roleFilter').addEventListener('change', function() {
+            const selectedRole = this.value.toLowerCase();
+            const rows = document.querySelectorAll('#userTableBody tr');
+            rows.forEach(row => {
+                const role = row.cells[3].textContent.toLowerCase();
+                if (selectedRole === '' || role.includes(selectedRole)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+
+        // Search users by name
+        document.getElementById('searchUser').addEventListener('input', function() {
+            const searchText = this.value.toLowerCase();
+            const rows = document.querySelectorAll('#userTableBody tr');
+            rows.forEach(row => {
+                const username = row.cells[1].textContent.toLowerCase();
+                if (username.includes(searchText)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+
+        // Call fetchUsers when the page loads
+        window.onload = fetchUsers;
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details</title>
+    <link rel="stylesheet" href="event-details.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">ConnectThroughEvents</div>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="event-history.html">Event History</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Section for adding new event -->
+        <section class="add-event-form">
+            <h3>Add New Event</h3>
+            <form id="event-form">
+                <label for="title">Event Title:</label>
+                <input type="text" id="title" name="title" required>
+
+                <label for="location">Event Location:</label>
+                <input type="text" id="location" name="location" required>
+
+                <label for="date">Event Date:</label>
+                <input type="date" id="date" name="date" required>
+
+                <label for="description">Event Description:</label>
+                <textarea id="description" name="description" required></textarea>
+
+                <label for="status">Event Status:</label>
+                <select id="status" name="status" required>
+                    <option value="Upcoming">Upcoming</option>
+                    <option value="Completed">Completed</option>
+                </select>
+
+                <button type="submit" class="btn">Add Event</button>
+            </form>
+        </section>
+
+        <!-- Section for displaying added events -->
+        <section class="event-list">
+            <h3>Upcoming Events</h3>
+            <ul id="event-list">
+                <!-- Dynamically added events will appear here -->
+            </ul>
+        </section>
+
+        <section id="dashboard">
+            <h2>Accepted Events</h2>
+            <ul id="accepted-events"></ul> <!-- Here accepted events will be listed -->
+        </section>
+        
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ConnectThroughEvents. All rights reserved.</p>
+    </footer>
+
+    <script src="event-details.js"></script>
+</body>
+</html>

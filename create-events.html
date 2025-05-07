@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create Event</title>
+  <link rel="stylesheet" href="create-events.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Create Event</h1>
+    <form id="eventForm">
+      
+      <!-- Event Details -->
+      <h2>Event Details</h2>
+      <label for="eventTitle">Event Title:</label>
+      <input type="text" id="eventTitle" name="eventTitle" required>
+
+      <label for="eventDate">Event Date:</label>
+      <input type="date" id="eventDate" name="eventDate" required>
+
+      <!-- Assign Event Manager -->
+      <h2>Assign Event Manager</h2>
+      <div id="managers-container" class="manager-grid">
+        <!-- Manager cards will be inserted here by JS -->
+      </div>
+
+      <!-- Hidden Fields to store assigned manager -->
+      <input type="hidden" id="eventManagerId" name="eventManagerId" />
+      <input type="hidden" id="manager-name" />
+      <input type="hidden" id="manager-email" />
+
+      <!-- Budget Details -->
+      <h2>Budget Details</h2>
+      <label for="budgetOption">Select Budget Range:</label>
+      <select id="budgetOption" name="budgetOption" required>
+        <option value="5000">5,000</option>
+        <option value="10000">10,000</option>
+        <option value="20000">20,000</option>
+        <option value="50000">50,000</option>
+        <option value="100000">100,000</option>
+        <option value="500000">500,000</option>
+      </select>
+
+      <div id="calculationResults" style="display:none;">
+        <p><strong>Budget:</strong> $<span id="calculatedBudget">0.00</span></p>
+        <p><strong>Service Charge (<span id="serviceChargePercentageLabel">5</span>%):</strong> 
+          $<span id="calculatedServiceCharge">0.00</span></p>
+        <p><strong>Total Price:</strong> $<span id="calculatedTotalPrice">0.00</span></p>
+      </div>
+
+      <!-- Preview Section -->
+      <h2>Preview and Request</h2>
+      <div id="eventPreview" style="display:none;">
+        <p><strong>Event Title:</strong> <span id="previewTitle">Sample Title</span></p>
+        <p><strong>Event Date:</strong> <span id="previewDate">2023-05-01</span></p>
+        <p><strong>Event Manager:</strong> <span id="previewManagerName">Manager 1</span></p>
+        <p><strong>Manager Email:</strong> <span id="previewManagerEmail">manager1@example.com</span></p>
+        <p><strong>Budget:</strong> $<span id="previewBudget">5000</span></p>
+        <p><strong>Service Charge (<span id="previewServiceChargePercentage">5</span>%):</strong> 
+          $<span id="previewServiceCharge">250.00</span> (Non-editable)</p>
+        <p><strong>Total Price:</strong> $<span id="previewTotalPrice">5250.00</span></p>
+      </div>
+
+      <button type="submit" id="submitEvent">Request Manager</button>
+    </form>
+  </div>
+
+  <script src="create-events.js"></script>
+</body>
+</html>

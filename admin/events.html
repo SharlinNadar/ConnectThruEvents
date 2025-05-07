@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Events</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <header class="d-flex justify-content-between align-items-center mb-4">
+            <h1>Manage Events</h1>
+            <!-- Back to Dashboard Button -->
+            <button class="btn btn-secondary" onclick="window.location.href='admin.html'">Back to Dashboard</button>
+        </header>
+
+        <!-- Events Table -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Event Name</th>
+                    <th>Date</th>
+                    <th>Budget</th>
+                    <th>Service Charge</th>
+                    <th>Total Price</th>
+                    <th>Status</th>
+                    <th>Created By</th>
+                    <th>Manager</th>
+                </tr>
+            </thead>
+            <tbody id="eventsTableBody">
+                <!-- Populated dynamically -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        async function fetchCreatedEvents() {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                console.error("No token found. Please login.");
+                return;
+            }
+
+            let url = 'http://localhost:5215/api/userandeventmanager/created-events';
+
+            try {
+                const response = await fetch(url, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to fetch events');
+                }
+
+                const events = await response.json();
+
+                // Populate the table with events
+                populateEventsTable(events);
+            } catch (error) {
+                console.error("Error fetching events:", error);
+            }
+        }
+
+        function populateEventsTable(events) {
+            const tbody = document.getElementById('eventsTableBody');
+            tbody.innerHTML = '';
+
+            if (!events || events.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="9" class="text-center">No events found.</td></tr>';
+                return;
+            }
+
+            events.forEach((event, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${event.eventTitle || 'N/A'}</td>
+                    <td>${new Date(event.eventDate).toLocaleDateString() || 'N/A'}</td>
+                    <td>$${event.budget?.toFixed(2) || '0.00'}</td>
+                    <td>$${event.serviceCharge?.toFixed(2) || '0.00'}</td>
+                    <td>$${event.totalPrice?.toFixed(2) || '0.00'}</td>
+                    <td>${event.status || 'N/A'}</td>
+                    <td>${event.userName || 'N/A'}</td>
+                    <td>${event.eventManagerName || 'Not Assigned'}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        window.onload = fetchCreatedEvents;
+    </script>
+</body>
+</html>

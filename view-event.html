@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details</title>
+    <link rel="stylesheet" href="view-event.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <header>
+        <!-- Logo Section -->
+        <div class="logo">
+            <img src="img/logo.png" alt="Logo" class="logo-img">
+            <span class="logo-text">ConnectThruEvents</span>
+        </div>
+
+        <!-- Navbar Section -->
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="event-details.html">Event</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Event Details Overview -->
+        <section class="event-details">
+            <div class="section-header">
+                <h2>Event Details</h2>
+            </div>
+            <div class="event-info">
+                <p><strong>Event Title:</strong> <span id="event-title">Sample Event Title</span></p>
+                <p><strong>Location:</strong> <span id="event-location">Sample Event Location</span></p>
+                <p><strong>Date:</strong> <span id="event-date">Event Date</span></p>
+                <p><strong>Description:</strong> <span id="event-description">This is a description of the event...</span></p>
+                <p><strong>Status:</strong> <span id="event-status">Upcoming</span></p>
+            </div>
+
+            <!-- Event Progress Tracker -->
+            <div class="event-progress">
+                <h3>Event Progress</h3>
+                <progress id="event-progress-bar" value="0" max="100"></progress>
+                <p><strong>Progress:</strong> <span id="event-progress-text">0%</span></p>
+            </div>
+
+            <!-- Event Notes Section -->
+            <section class="event-notes">
+                <h3>Event Notes</h3>
+                <textarea id="event-notes" rows="4" placeholder="Add important notes here..."></textarea>
+                <button id="save-notes-btn" class="btn">Save Notes</button>
+
+                <!-- ✅ Saved Notes Preview Box -->
+                <div id="displayed-notes" class="saved-notes-box">
+                    <h4>Saved Notes:</h4>
+                    <p id="saved-notes-content">No notes added yet.</p>
+                </div>
+            </section>
+
+            <!-- Employee Assignment Section -->
+            <section class="employee-assignment">
+                <div class="section-header">
+                    <h3>Assign Employees</h3>
+                </div>
+                <div class="employee-form">
+                    <label for="employee-name">Employee Name</label>
+                    <input type="text" id="employee-name" placeholder="Enter employee name" class="input-field" required>
+                    <label for="employee-role">Select Role</label>
+                    <select id="employee-role" class="input-field" required>
+                        <option value="">Select Role</option>
+                        <option value="Manager">Manager</option>
+                        <option value="Assistant">Assistant</option>
+                        <option value="Coordinator">Coordinator</option>
+                    </select>
+                    <button id="assign-employee-btn" class="btn">Assign Employee</button>
+                </div>
+                <div class="assigned-employees">
+                    <h4>Assigned Employees:</h4>
+                    <ul id="assigned-employees-list">
+                        <!-- Dynamically added employees will appear here -->
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Task Assignment Section -->
+            <section class="task-assignment">
+                <h3>Assign Tasks</h3>
+                <div class="task-form">
+                    <label for="task-name">Task Name</label>
+                    <input type="text" id="task-name" class="input-field" placeholder="Enter Task Name" required>
+
+                    <label for="task-cost">Task Cost</label>
+                    <input type="number" id="task-cost" class="input-field" placeholder="Enter Task Cost" required>
+
+                    <label for="task-status">Status</label>
+                    <select id="task-status" class="input-field" required>
+                        <option value="" disabled selected>Status</option>
+                        <option value="Not Started">Not Started</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+
+                    <label for="task-priority">Priority</label>
+                    <select id="task-priority" class="input-field" required>
+                        <option value="" disabled selected>Priority</option>
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select>
+
+                    <label for="task-employee">Assign to Employee</label>
+                    <select id="task-employee" class="input-field" required>
+                        <option value="" disabled selected>Assign to Employee</option>
+                        <!-- Employees will be dynamically populated here -->
+                    </select>
+
+                    <button id="assign-task-btn" class="btn">Assign Task</button>
+                </div>
+                <div id="assigned-tasks-list" class="task-grid">
+                    <!-- Tasks will be dynamically displayed here -->
+                </div>
+            </section>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 ConnectThroughEvents. All rights reserved.</p>
+        </footer>
+    </main>
+
+    <!-- Link to JavaScript -->
+    <script src="view-event.js"></script>
+</body>
+
+</html>

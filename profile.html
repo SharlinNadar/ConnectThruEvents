@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Management</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">ConnectThroughEvents</div>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="event-history.html">Event History</a></li>
+                <li><a href="contact-admin.html">Contact Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Profile Section -->
+        <section class="profile">
+            <h2>Update Profile</h2>
+            <form id="profile-form">
+                <label for="manager-name">Name:</label>
+                <input type="text" id="manager-name" name="manager-name" placeholder="Full Name">
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Email" readonly>
+
+                <label for="organization">Organization:</label>
+                <input type="text" id="organization" name="organization" placeholder="Organization Name">
+
+                <label for="experience">Experience (Years):</label>
+                <input type="number" id="experience" name="experience" min="0" placeholder="Years of Experience">
+
+                <label for="certifications">Certifications:</label>
+                <input type="text" id="certifications" name="certifications" placeholder="Certifications">
+
+                <label for="events-completed">Events Completed:</label>
+                <input type="number" id="events-completed" name="events-completed" placeholder="Number of Events">
+
+                <label for="price">Price per Event ($):</label>
+                <input type="number" id="price" name="price"  placeholder="Event Price">
+
+                <button type="submit" class="btn">Save Changes</button>
+                <p id="status-message" class="status-message"></p> <!-- Status Message -->
+            </form>
+        </section>
+
+        <!-- Recently Done Events -->
+        <section class="recent-events">
+            <h2>Recently Done Events</h2>
+            <ul id="recent-events-list">
+                <!-- Dynamic events will be added here -->
+            </ul>
+            <button class="btn" id="add-event-btn">Add New Event</button>
+            <button class="btn" id="clear-events-btn">Clear Events</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ConnectThroughEvents. All rights reserved.</p>
+    </footer>
+    <script src="Profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!-- Tickets Page (tickets.html) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Tickets</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Manage Tickets</h1>
+
+        <!-- Create Ticket Button -->
+        <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#createTicketModal">Create Ticket</button>
+
+        <!-- Tickets Table -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Ticket Name</th>
+                    <th>Price</th>
+                    <th>Available</th>
+                    <th>Event</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Standard Ticket</td>
+                    <td>$50</td>
+                    <td>100</td>
+                    <td>ConnectThrough Workshop</td>
+                    <td>
+                        <button class="btn btn-sm btn-primary">Edit</button>
+                        <button class="btn btn-sm btn-danger">Delete</button>
+                    </td>
+                </tr>
+                <!-- Add more rows dynamically -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Create Ticket Modal -->
+    <div class="modal fade" id="createTicketModal" tabindex="-1" aria-labelledby="createTicketModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createTicketModalLabel">Create New Ticket</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="createTicketForm">
+                        <div class="mb-3">
+                            <label for="ticketName" class="form-label">Ticket Name</label>
+                            <input type="text" class="form-control" id="ticketName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="ticketPrice" class="form-label">Price</label>
+                            <input type="number" class="form-control" id="ticketPrice" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="ticketAvailable" class="form-label">Available Tickets</label>
+                            <input type="number" class="form-control" id="ticketAvailable" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="ticketEvent" class="form-label">Event</label>
+                            <select class="form-select" id="ticketEvent">
+                                <option value="event1">ConnectThrough Workshop</option>
+                                <option value="event2">Networking Event</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" form="createTicketForm">Create Ticket</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

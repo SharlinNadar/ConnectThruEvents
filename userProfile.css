@@ -1,0 +1,301 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Sidebar */
+#sidebar-wrapper {
+    width: 250px;
+    min-height: 100vh;
+    background-color: #343a40;
+}
+
+#sidebar-wrapper h3 {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.nav-link {
+    color: #c9c9c9;
+    font-size: 18px;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background-color: #495057;
+    color: #fff;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: -250px;
+}
+
+#wrapper #page-content-wrapper {
+    padding: 20px;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #343a40;
+}
+
+.navbar-brand {
+    color: #fff;
+    font-size: 20px;
+}
+
+#menu-toggle {
+    color: #fff;
+}
+
+/* Profile Picture */
+#profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 10px auto;
+    display: block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+#profile-pic:hover {
+    transform: scale(1.05);
+}
+
+/* Profile Card */
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.card h2 {
+    font-size: 28px;
+    color: #333;
+}
+
+.card p {
+    font-size: 16px;
+    color: #555;
+}
+
+.card a.btn-primary {
+    background-color: #007bff;
+    border: none;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.card a.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Tabs */
+.nav-tabs .nav-link {
+    color: #555;
+    font-weight: 500;
+}
+
+.nav-tabs .nav-link.active {
+    color: #007bff;
+    background-color: #e9ecef;
+}
+
+.tab-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Logout Button */
+#logout-btn {
+    font-size: 16px;
+    padding: 8px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#logout-btn:hover {
+    background-color: #c82333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #sidebar-wrapper {
+        width: 200px;
+    }
+
+    #profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+
+    .card h2 {
+        font-size: 22px;
+    }
+
+    .nav-link {
+        font-size: 16px;
+    }
+}
+/* General Styling for Events Section */
+#events-created,
+#enrolled-events,
+#completed-events {
+    padding: 20px;
+    background-color: #fff;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    overflow: hidden; /* Ensure content doesn't overflow */
+}
+
+/* Event List Styling */
+ul.event-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Event Item Styling */
+ul.event-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fafafa;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+ul.event-list li:hover {
+    background-color: #f1f1f1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Event Item Container */
+.event-item {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Ensure it takes up the full width available */
+}
+
+/* Event Title Styling */
+.event-title {
+    font-size: 18px; /* Slightly smaller title */
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px; /* Reduced margin for a more compact layout */
+}
+
+/* Event Info Styling */
+.event-info {
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 10px;
+}
+
+/* Event Status Styling */
+.event-status {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+/* Pending Event Status */
+.event-status.pending {
+    color: #ffc107; /* Yellow color for pending events */
+    background-color: #fff3cd;
+    border: 1px solid #ffc107;
+}
+
+/* Accepted Event Status */
+.event-status.accepted {
+    color: #28a745; /* Green color for accepted events */
+    background-color: #d4edda;
+    border: 1px solid #28a745;
+}
+
+/* Button Styling for Accepted Events */
+.proceed-to-pay-btn {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.proceed-to-pay-btn:hover {
+    background-color: #218838;
+}
+
+/* Disabled Button State */
+.proceed-to-pay-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Message for Pending Events */
+.pending-message {
+    font-size: 14px;
+    color: #ffc107; /* Yellow color for pending message */
+    font-style: italic;
+    margin-top: 10px;
+}
+
+/* No Events Available Message */
+.no-events-message {
+    text-align: center;
+    font-size: 16px;
+    color: #6c757d;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+/* Container for Event Section */
+.event-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Styling for Empty Events List */
+.empty-events-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-size: 18px;
+    color: #6c757d;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Special Styling for the Proceed to Pay Button when it's available */
+.event-container .proceed-to-pay-btn {
+    margin-top: 15px;
+}

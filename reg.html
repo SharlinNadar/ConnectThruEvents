@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | ConnectThruEvents</title>
+    <link rel="stylesheet" href="reg.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <header>
+        <h1>Register for ConnectThruEvents</h1>
+    </header>
+    
+    <div class="registration-container">
+        <div class="left-section">
+            <h2>Welcome!</h2>
+            <p>Join our community and start participating in exciting events.</p>
+            <img src="img/logo.png" alt="Event Image">
+        </div>
+        <div class="right-section">
+            <h2>Sign Up</h2>
+            <form id="signup-form">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="fullname">
+                <div id="fullname-error" class="error-message"></div>
+                
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email">
+                <div id="email-error" class="error-message"></div>
+                
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone">
+                <div id="phone-error" class="error-message"></div>
+                
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password">
+                <div id="password-error" class="error-message"></div>
+                
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password">
+                <div id="confirm-password-error" class="error-message"></div>
+                
+                <label for="user-role">Role</label>
+                <select id="user-role" name="user-role">
+                    <option value="participant">Participant</option>
+                    <option value="event_manager">Event Manager</option>
+                </select>
+                
+                <div id="event-manager-fields" style="display: none;">
+                    <label for="organization">Organization</label>
+                    <input type="text" id="organization" name="organization">
+                    <div id="organization-error" class="error-message"></div>
+                    
+                    <label for="experience-years">Years of Experience</label>
+                    <input type="number" id="experience-years" name="experience-years">
+                    <div id="experience-error" class="error-message"></div>
+                    
+                    <label for="certifications">Certifications</label>
+                    <input type="text" id="certifications" name="certifications">
+                </div>
+                
+                <button type="submit">Register</button>
+                <p class="login-link">
+                    Already have an account? <a href="login.html">Log in</a>
+                </p>
+            </form>
+        </div>
+    </div>
+    
+    <script src="reg.js"></script>
+</body>
+</html>

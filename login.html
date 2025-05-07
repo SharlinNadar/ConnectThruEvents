@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Left section -->
+        <div class="left-section">
+            <img src="img/logo.png" alt="Website Logo">
+            <h2>Welcome to Our Platform</h2>
+            <p>Connect, collaborate, and achieve more with our powerful tools and resources.</p>
+        </div>
+
+        <!-- Right section -->
+        <div class="right-section">
+            <h1>Login</h1>
+            <form id="login-form">
+                <input type="text" id="username" name="username" placeholder="Username or Email" required>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+
+            <!-- Display messages -->
+            <div id="message-box" style="display: none;"></div>
+
+    
+            <div class="links">
+                <a href="#">Forgot Password?</a> | <a href="reg.html">Register</a>
+            </div>
+
+            <!-- User profile section (hidden by default) -->
+            <div id="login-container" style="display: none;">
+                <h2>Welcome, <span id="welcome-message"></span></h2>
+                <a href="userProfile.html" id="user-profile-link" style="display: none;">Go to Profile</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

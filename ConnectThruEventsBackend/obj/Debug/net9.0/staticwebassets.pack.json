@@ -1,0 +1,61 @@
+{
+  "Files": [
+    {
+      "Id": "E:\\Practise\\ConnectThruEventsBackend\\wwwroot\\uploads\\0199e6f4-1906-4651-90cb-765c44fefcfb_91818e5b1582b3657922cf2de42676fe.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\0199e6f4-1906-4651-90cb-765c44fefcfb_91818e5b1582b3657922cf2de42676fe.jpeg"
+    },
+    {
+      "Id": "E:\\Practise\\ConnectThruEventsBackend\\wwwroot\\uploads\\52266265-36c0-4e17-95a2-5285bf03023c_a70b53ed1be485d109421b059ef76a69.jpg",
+      "PackagePath": "staticwebassets\\uploads\\52266265-36c0-4e17-95a2-5285bf03023c_a70b53ed1be485d109421b059ef76a69.jpg"
+    },
+    {
+      "Id": "E:\\Practise\\ConnectThruEventsBackend\\wwwroot\\uploads\\552c1885-ee2b-41cb-bb5b-a1323499f560.jpg",
+      "PackagePath": "staticwebassets\\uploads\\552c1885-ee2b-41cb-bb5b-a1323499f560.jpg"
+    },
+    {
+      "Id": "E:\\Practise\\ConnectThruEventsBackend\\wwwroot\\uploads\\5fa3a56d-a6dc-447f-85f3-4ca0f53caf5d.jpg",
+      "PackagePath": "staticwebassets\\uploads\\5fa3a56d-a6dc-447f-85f3-4ca0f53caf5d.jpg"
+    },
+    {
+      "Id": "E:\\Practise\\ConnectThruEventsBackend\\wwwroot\\uploads\\918fe880-0507-44be-9195-6735bdb1706f_a70b53ed1be485d109421b059ef76a69.jpg",
+      "PackagePath": "staticwebassets\\uploads\\918fe880-0507-44be-9195-6735bdb1706f_a70b53ed1be485d109421b059ef76a69.jpg"
+    },
+    {
+      "Id": "E:\\Practise\\ConnectThruEventsBackend\\wwwroot\\uploads\\a774d2f6-707e-4c35-835b-5d01c971455a_a70b53ed1be485d109421b059ef76a69.jpg",
+      "PackagePath": "staticwebassets\\uploads\\a774d2f6-707e-4c35-835b-5d01c971455a_a70b53ed1be485d109421b059ef76a69.jpg"
+    },
+    {
+      "Id": "E:\\Practise\\ConnectThruEventsBackend\\wwwroot\\uploads\\b1411de9-38a6-475f-8ef1-e6e4875c2fce_a70b53ed1be485d109421b059ef76a69.jpg",
+      "PackagePath": "staticwebassets\\uploads\\b1411de9-38a6-475f-8ef1-e6e4875c2fce_a70b53ed1be485d109421b059ef76a69.jpg"
+    },
+    {
+      "Id": "E:\\Practise\\ConnectThruEventsBackend\\wwwroot\\uploads\\c1186818-c03d-494e-98d8-f003da57b170.jpg",
+      "PackagePath": "staticwebassets\\uploads\\c1186818-c03d-494e-98d8-f003da57b170.jpg"
+    },
+    {
+      "Id": "E:\\Practise\\ConnectThruEventsBackend\\wwwroot\\uploads\\fea39930-c12c-4a92-9382-e7b8395441a3_a70b53ed1be485d109421b059ef76a69.jpg",
+      "PackagePath": "staticwebassets\\uploads\\fea39930-c12c-4a92-9382-e7b8395441a3_a70b53ed1be485d109421b059ef76a69.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.ConnectThruEventsBackend.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.ConnectThruEventsBackend.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.build.ConnectThruEventsBackend.props",
+      "PackagePath": "build\\ConnectThruEventsBackend.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.ConnectThruEventsBackend.props",
+      "PackagePath": "buildMultiTargeting\\ConnectThruEventsBackend.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildTransitive.ConnectThruEventsBackend.props",
+      "PackagePath": "buildTransitive\\ConnectThruEventsBackend.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

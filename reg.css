@@ -1,0 +1,173 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+    overflow: hidden;
+}
+
+/* Header */
+header {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    font-size: 24px;
+    color: #1e3c72;
+}
+
+/* Registration Container */
+.registration-container {
+    display: flex;
+    width: 80%;
+    max-width: 900px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    margin-top: 80px; /* Push content below fixed header */
+    animation: slideIn 1s ease-in-out;
+}
+
+/* Left Section - Welcome */
+.left-section {
+    flex: 1;
+    background: linear-gradient(to right, #007bff, #0056b3);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.left-section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.left-section img {
+    width: 80%;
+    max-width: 200px;
+    margin-top: 15px;
+}
+
+/* Right Section - Form */
+.right-section {
+    flex: 1.5;
+    padding: 30px;
+    overflow-y: auto; /* Allow scrolling if content is too long */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Fixing the Hidden Button */
+.right-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Animation */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .registration-container {
+        flex-direction: column;
+        width: 90%;
+    }
+    
+    .left-section {
+        padding: 10px;
+    }
+
+    .right-section {
+        padding: 20px;
+    }
+}
+.login-link {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.login-link a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: red;      
+    font-size: 12px; 
+    margin-top: 5px; 
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Event Managers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Manage Event Managers</h1>
+
+        <!-- Back Button -->
+        <div class="mb-3">
+            <a href="admin.html" class="btn btn-secondary">Back to Dashboard</a>
+        </div>
+
+        <!-- Event Managers Table -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Manager Name</th>
+                    <th>Email</th>
+                    <th>Organization</th>
+                    <th>Experience (Years)</th>
+                    <th>Certifications</th>
+                    <th>Events Completed</th>
+                    <th>Price Per Event</th>
+                </tr>
+            </thead>
+            <tbody id="managerTableBody">
+                <!-- Event manager data will be inserted here dynamically -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript to fetch and populate event managers -->
+    <script>
+        async function fetchEventManagers() {
+            try {
+                const response = await fetch('http://localhost:5215/api/userandeventmanager/eventmanagers');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const eventManagers = await response.json();
+                console.log(eventManagers); // Log the response to check its structure
+                populateEventManagerTable(eventManagers);
+            } catch (error) {
+                console.error('Error fetching event manager data:', error);
+            }
+        }
+
+        function populateEventManagerTable(eventManagers) {
+            const tableBody = document.getElementById('managerTableBody');
+            tableBody.innerHTML = ''; // Clear existing rows
+
+            eventManagers.forEach((manager, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${manager.fullName}</td>
+                    <td>${manager.email}</td>
+                    <td>${manager.organization}</td>
+                    <td>${manager.experienceYears}</td>
+                    <td>${manager.certifications}</td>
+                    <td>${manager.eventsCompleted}</td>
+                    <td>${manager.pricePerEvent}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Call fetchEventManagers when the page loads
+        window.onload = fetchEventManagers;
+    </script>
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin - Publish Event</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <style>
+    /* Use the CSS you already provided above (included directly for a complete file) */
+    body {
+        margin: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f4f6f9;
+    }
+
+    .sidebar {
+        width: 250px;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #34495E;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease-in-out;
+        z-index: 1000;
+    }
+
+    .sidebar.show {
+        left: 0;
+    }
+
+    .sidebar-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        background-color: #2C3E50;
+    }
+
+    .sidebar h2 {
+        font-size: 22px;
+        margin: 0;
+    }
+
+    .sidebar .btn-close {
+        font-size: 30px;
+        color: #fff;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .sidebar .nav {
+        padding: 20px 0;
+        flex-grow: 1;
+    }
+
+    .sidebar .nav-link {
+        color: #ECF0F1;
+        padding: 10px 20px;
+        font-size: 16px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        transition: background-color 0.3s, padding-left 0.3s;
+    }
+
+    .sidebar .nav-link:hover {
+        background-color: #1ABC9C;
+        color: white;
+        padding-left: 30px;
+    }
+
+    .content {
+        margin-left: 250px;
+        padding: 40px 20px;
+        transition: margin-left 0.3s ease-in-out;
+        background-color: #f8f9fa;
+        min-height: 100vh;
+    }
+
+    .content h1 {
+        color: #2c3e50;
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+
+    .form-label {
+        font-weight: 500;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        background: #eee;
+    }
+
+    @media (max-width: 1024px) {
+        .sidebar {
+            width: 70px;
+        }
+
+        .content {
+            margin-left: 70px;
+        }
+
+        .sidebar h2 {
+            font-size: 16px;
+            padding: 10px 0;
+        }
+
+        .sidebar .nav-link {
+            font-size: 14px;
+            padding-left: 10px;
+            text-align: center;
+        }
+
+        .content header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .content header .search-bar {
+            width: 100%;
+            margin-top: 10px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .sidebar {
+            width: 0;
+            position: absolute;
+            top: 0;
+            left: -250px;
+        }
+
+        .content {
+            margin-left: 0;
+        }
+
+        .sidebar.show {
+            width: 250px;
+            left: 0;
+        }
+
+        .content header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .content header .search-bar {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .content header .btn {
+            margin-left: 0;
+            margin-top: 10px;
+        }
+
+        .sidebar .nav-link.menu {
+            display: block;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .sidebar .nav-link:not(.menu) {
+            display: none;
+        }
+
+        .sidebar.show .nav-link:not(.menu) {
+            display: flex;
+        }
+
+        .sidebar .nav-link {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .sidebar .nav-item:last-child {
+            margin-top: 20px;
+            padding-bottom: 20px;
+        }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+  <div class="sidebar-header">
+    <h2>Admin</h2>
+    <button class="btn-close" onclick="document.querySelector('.sidebar').classList.toggle('show')">&times;</button>
+  </div>
+  <nav class="nav flex-column">
+    <a href="admin.html" class="nav-link">Dashboard</a>
+    <a href="events.html" class="nav-link">Manage Events</a>
+  </nav>
+</div>
+
+<!-- Main Content -->
+<div class="content">
+  <h1>Publish New Event</h1>
+
+  <form id="publishEventForm">
+    <div class="mb-3">
+      <label for="eventTitle" class="form-label">Event Title</label>
+      <input type="text" class="form-control" id="eventTitle" name="eventTitle" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="eventCategory" class="form-label">Category</label>
+      <select class="form-select" id="eventCategory" name="eventCategory">
+        <option value="music">Music</option>
+        <option value="sports">Sports</option>
+        <option value="tech">Tech</option>
+        <option value="arts">Arts</option>
+        <option value="food">Food</option>
+        <option value="comedy">Comedy</option>
+      </select>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="eventDate" class="form-label">Date</label>
+        <input type="date" class="form-control" id="eventDate" name="eventDate" required>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="eventTime" class="form-label">Time</label>
+        <input type="time" class="form-control" id="eventTime" name="eventTime" required>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="eventLocation" class="form-label">Location</label>
+      <input type="text" class="form-control" id="eventLocation" name="eventLocation" placeholder="E.g., Mumbai - City Park" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="eventPrice" class="form-label">Ticket Type</label>
+      <select class="form-select" id="eventPrice" name="eventPrice" required>
+        <option value="free">Free</option>
+        <option value="standard">Standard - Paid</option>
+        <option value="vip">VIP - Paid</option>
+        <option value="early_bird">Early Bird - Discount</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="eventDescription" class="form-label">Description</label>
+      <textarea class="form-control" id="eventDescription" name="eventDescription" rows="5" placeholder="Enter event details here..." required></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="eventImage" class="form-label">Event Image</label>
+      <input type="file" class="form-control" id="eventImage" name="eventImage" accept="image/*" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="eventSpeaker" class="form-label">Speaker Name (Optional)</label>
+      <input type="text" class="form-control" id="eventSpeaker" name="eventSpeaker">
+    </div>
+
+    <div class="mb-3">
+      <label for="eventURL" class="form-label">Event URL (Optional)</label>
+      <input type="url" class="form-control" id="eventURL" name="eventURL" placeholder="https://event-link.com">
+    </div>
+
+    <button type="submit" class="btn btn-success">Publish Event</button>
+  </form>
+</div>
+
+<footer>
+  <p>&copy; 2025 ConnectThru Events. All rights reserved.</p>
+</footer>
+<script>
+    document.getElementById("publishEventForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+  
+      const form = e.target;
+  
+      const eventData = {
+        eventTitle: form.eventTitle.value,
+        eventCategory: form.eventCategory.value,
+        eventDate: form.eventDate.value,
+        eventTime: form.eventTime.value,
+        eventLocation: form.eventLocation.value,
+        ticketType: form.eventPrice.value,
+        description: form.eventDescription.value,
+        speakerName: form.eventSpeaker.value,
+        externalUrl: form.eventURL.value,
+        eventImageUrl: "https://via.placeholder.com/300x200.png?text=Event" // Replace with actual image URL handling
+      };
+  
+      try {
+        const response = await fetch("http://localhost:5215/api/publishevents/create", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(eventData)
+        });
+  
+        if (response.ok) {
+          Swal.fire({
+            icon: 'success',
+            title: 'Event Created!',
+            text: 'Your event has been successfully published.',
+            confirmButtonColor: '#28a745'
+          });
+          form.reset(); // Clear form after success
+        } else {
+          const error = await response.json();
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: error?.message || 'Something went wrong!'
+          });
+        }
+      } catch (err) {
+        console.error(err);
+        Swal.fire({
+          icon: 'error',
+          title: 'Network Error',
+          text: 'Could not connect to server.'
+        });
+      }
+    });
+  </script>
+  
+</body>
+</html>

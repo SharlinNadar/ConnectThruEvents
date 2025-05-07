@@ -1,0 +1,70 @@
+<!-- Messages Page (messages.html) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Messages</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Manage Messages</h1>
+
+        <!-- Filter/Search Messages -->
+        <div class="d-flex justify-content-between mb-3">
+            <div>
+                <input type="text" class="form-control" placeholder="Search messages..." id="searchMessages">
+            </div>
+            <div>
+                <select class="form-select" id="messageStatus">
+                    <option value="">All</option>
+                    <option value="read">Read</option>
+                    <option value="unread">Unread</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Messages Table -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Sender</th>
+                    <th>Subject</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>john@example.com</td>
+                    <td>Event Inquiry</td>
+                    <td>Unread</td>
+                    <td>20 Jan 2025</td>
+                    <td>
+                        <button class="btn btn-sm btn-primary">View</button>
+                        <button class="btn btn-sm btn-danger">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>jane@example.com</td>
+                    <td>Ticket Issue</td>
+                    <td>Read</td>
+                    <td>18 Jan 2025</td>
+                    <td>
+                        <button class="btn btn-sm btn-primary">View</button>
+                        <button class="btn btn-sm btn-danger">Delete</button>
+                    </td>
+                </tr>
+                <!-- Additional message rows -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

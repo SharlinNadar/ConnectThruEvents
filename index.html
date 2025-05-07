@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- linking swiperJS CSS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <title>ConnectThruEvents</title>
+    <!-- google icon -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=chevron_right" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo-div">
+                <img src="img/logo.png" class="logo">
+                <div class="name">
+                    <p>Connect</p>
+                    <p>Thru</p>
+                    <p>Events</p>
+                </div>
+            </div>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <div class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#">Home</a></li>
+                    <li class="nav-item"><a href="about.html">About Us</a></li>
+                    <li class="nav-item"><a href="create-events.html">Create Events</a></li>
+                    <li class="nav-item"><a href="exp.html">Explore Events</a></li>
+                    <li class="nav-item"><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <button class="login-btn log-btn"><a href="login.html">Login</a></button>
+            <!-- Logout button (only visible when authenticated) -->
+<button id="logoutBtn" style="display: none;">Logout</button>
+        </div>
+    </header>
+    <!-- Introduction section -->
+     <div class="intro-back">
+     <div class="intro">
+        <div class="intro-text">
+            <h2>ConnectThruEvents</h2>
+            <p class="intro-slogan">Connect. Share. Grow</p>
+            <p>ConnectThruEvents is an innovative online platform designed to facilitate seamless connections among individuals, organizations, and communities through virtual and physical events.</p>
+            <a href="#">Click here</a>
+            <div class="btn">
+            <button class="login-btn" onclick="redirectToPage()">Register</button>
+        </div>
+        </div>
+    <div class="image">
+      <img src="img/side-img.avif" alt="Placeholder Image">
+    </div>
+    </div>
+</div>
+
+<!-- section -->
+ <div class="box-container">
+    <div class=" box1 box">
+        <div class="box-icon">
+            <i class="fa-solid fa-plus"></i>
+        </div>
+        <div class="box-title">
+            <h3>Create your Events</h3>
+        </div>
+        <div class="box-content">
+            <p>Creating an event on our platform is quick, easy, and fun! </p>
+        </div>
+        <a href="#">See more</a>
+    </div>
+    <div class="box2 box">
+        <div class="box-icon">
+            <i class="fa-brands fa-searchengin"></i>
+        </div>
+        <div class="box-title">
+            <h3>Exploring Events</h3>
+        </div>
+        <div class="box-content">
+            <p>Events are more than just gatherings; they are opportunities to create lasting memories, learn something new, and connect with like-minded people.</p>
+        </div>
+        <a href="#">See more</a>
+    </div>
+    <div class="box3 box">
+        <div class="box-icon">
+            <i class="fa-solid fa-list-check"></i>
+        </div>
+        <div class="box-title">
+            <h3>Event Management</h3>
+        </div>
+        <div class="box-content">
+            <p>At ConnectThruEvents, we specialize in delivering seamless, high-impact events that exceed expectations.</p>
+        </div>
+        <a href="#">See more</a>
+    </div>
+    <div class=" box4 box">
+        <div class="box-icon">
+            <i class="fa-solid fa-chart-simple"></i>
+        </div>
+        <div class="box-title">
+            <h3>Event Analysis</h3>
+        </div>
+        <div class="box-content">
+            <p>Event Analysis service is designed to help you measure the success of your events, gain valuable insights, and make informed decisions for future events. </p>
+        </div>
+        <a href="#">See more</a>
+    </div>
+ </div>
+ <!-- search section -->
+  <div class="search-section">
+    <p class="search-text">Browsing Events in</p>
+    
+
+  </div>
+  <!-- second Navigation -->
+  <nav>
+    <ul class="navbar2">
+        <li><a href="exp.html">Explore Events</a></li>
+    </ul>
+</nav>
+  <!-- image slider -->
+<div class="img-slider">
+   <div class="container swiper">
+    <div class="card-wrapper">
+        <ul class="card-list swiper-wrapper">
+            <li class="card-item swiper-slide">
+                <a href="#" class="card-link">
+                    <img src="img/card1.jpeg" class="card-image">
+                    <p class="badge">Wedding events</p>
+                    <h2 class="class-title">Celebrate love and commitment with unforgettable wedding events and memories.</h2>
+                    <button class="card-button material-symbols-rounded">
+                        arrow_forward
+                    </button>
+                </a>
+            </li>
+            <li class="card-item swiper-slide">
+                <a href="#" class="card-link">
+                    <img src="img/card2.jpg" class="card-image">
+                    <p class="badge">Conference</p>
+                    <h2 class="class-title">Host impactful conferences with expert speakers, networking, and innovative sessions.</h2>
+                    <button class="card-button material-symbols-rounded">
+                        arrow_forward
+                    </button>
+                </a>
+            </li>
+            <li class="card-item swiper-slide">
+                <a href="#" class="card-link">
+                    <img src="img/card3.jpg" class="card-image">
+                    <p class="badge">Music event</p>
+                    <h2 class="class-title">Experience live performances, talented artists, and unforgettable musical moments.</h2>
+                    <button class="card-button material-symbols-rounded">
+                        arrow_forward
+                    </button>
+                </a>
+            </li>
+            <li class="card-item swiper-slide">
+                <a href="#" class="card-link">
+                    <img src="img/card4.jpg" class="card-image">
+                    <p class="badge">Corporate events</p>
+                    <h2 class="class-title">Professional networking, insightful talks, and business growth opportunities await.</h2>
+                    <button class="card-button material-symbols-rounded">
+                        arrow_forward
+                    </button>
+                </a>
+            </li>
+        </ul>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button swiper-button-prev"></div>
+        <div class="swiper-button swiper-button-next"></div>
+    </div>
+   </div>
+</div>
+<!-- About Us Start-->
+<section class="about-us">
+    <div class="about-content">
+      <h3>About Us</h3>
+      <p>We are a passionate team dedicated to providing exceptional services. Our mission is to help businesses grow and thrive by offering innovative solutions tailored to their unique needs. With years of experience and a commitment to excellence, we strive to deliver outstanding results that make a real impact.</p>
+      <p>Our team consists of skilled professionals who are experts in their fields. </p>
+      <button class="view-btn"><a href="about.html">View More</a></button>
+    </div>
+    
+    <div class="about-image">
+      <img src="img/about.png" alt="Team Image">
+    </div>
+  </section>
+  <!-- About Us End -->
+
+  <!-- Features start -->
+   <div class="feature">
+  <div class="card-container">
+    <div class="card">
+        <img src="img/pers.png" alt="Image 1">
+        <div class="card-content">
+            <i class="fas fa-heart icon"></i>
+            <h3>Personalized Recommendations</h3>
+            <p>Deliver personalized event recommendations based on user interests.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="img/feedback.png" alt="Image 2">
+        <div class="card-content">
+            <i class="fas fa-star icon"></i>
+            <h3>Feedback Mechanism</h3>
+            <p>Collect and incorporate user feedback. Develop a rating and review system.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="img/user.png" alt="Image 3">
+        <div class="card-content">
+            <i class="fas fa-cloud icon"></i>
+            <h3>User Retention</h3>
+            <p>Encourage repeat attendance and user engagement.Offer loyalty programs and rewards.</p>
+        </div>
+    </div>
+</div>
+</div>
+   <!-- Features End -->
+<!-- testimonial section -->
+<section class="testimonials">
+    <h2>What Our Users Say</h2>
+    <div class="testimonial-cards">
+        <div class="testimonial-card">
+            <p>"This platform made event creation and management so easy! Highly recommend."</p>
+            <h4>- John Doe</h4>
+        </div>
+        <div class="testimonial-card">
+            <p>"I discovered amazing events in my city through ConnectThruEvents. Great experience!"</p>
+            <h4>- Jane Smith</h4>
+        </div>
+        <div class="testimonial-card">
+            <p>"I discovered amazing events in my city through ConnectThruEvents. Great experience!"</p>
+            <h4>- Jane Smith</h4>
+        </div>
+    </div>
+</section>
+
+ <!-- Upcoming event end -->
+    <!-- Faq -->
+    <section class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <h3>How do I create an event?</h3>
+            <p>Creating an event is simple! Just click the "Create Event" button and follow the steps.</p>
+        </div>
+        <div class="faq-item">
+            <h3>How can I find events near me?</h3>
+            <p>Use our search bar to find events by location, or explore events based on categories.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Is there a fee to join events?</h3>
+            <p>Some events may have a fee, while others are free. Each event page provides detailed information.</p>
+        </div>
+    </section>
+    <!-- footer start -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="img/logo.png" alt="Logo">
+        </div>
+        <div class="footer-links">
+            <ul>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="social-media">
+            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 ConnectThruEvents. All rights reserved.</p>
+    </div>
+</footer>
+
+     <!-- footer end -->
+     <!-- faq end -->
+<!-- linking swiperJS script -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+   <script src="home.js"></script>
+</body>
+</html>

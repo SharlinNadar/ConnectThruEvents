@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Explorer</title>
+  <link rel="stylesheet" href="exp.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+  <header>
+    <div class="logo-div">
+      <img src="img/logo.png" class="logo">
+      <div class="name">
+        <p>Connect</p>
+        <p>Thru</p>
+        <p>Events</p>
+      </div>
+    </div>
+    <h1>Explore Events</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <button class="toggle-filter-btn" id="toggle-filter-btn">Filters</button>
+
+    <aside class="filters" id="filter-section">
+      <h2>Filter Events</h2>
+      <label for="category">Category:</label>
+      <select id="category">
+        <option value="all">All Categories</option>
+        <option value="music">Music</option>
+        <option value="sports">Sports</option>
+        <option value="tech">Tech</option>
+        <option value="arts">Arts</option>
+        <option value="food">Food</option>
+        <option value="comedy">Comedy</option>
+      </select>
+      <label for="event-date">Date:</label>
+      <input type="date" id="event-date">
+      <label for="location">Location:</label>
+      <input type="text" id="location" placeholder="Enter location (e.g., Mumbai, Chennai)">
+      <label for="price">Price:</label>
+      <select id="price">
+        <option value="all">All Prices</option>
+        <option value="free">Free</option>
+        <option value="0-500">0-500 INR</option>
+        <option value="500-1000">500-1000 INR</option>
+        <option value="1000+">1000+ INR</option>
+      </select>
+      <button id="reset-filters">Reset Filters</button>
+    </aside>
+
+    <main class="events-section" id="events-section">
+      <div class="category" id="all-events-category">
+        <h2>All Events</h2>
+        <div class="events-grid" id="events-container"></div>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Explore Events</p>
+  </footer>
+
+  <script src="exp.js"></script>
+</body>
+</html>

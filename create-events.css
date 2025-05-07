@@ -1,0 +1,133 @@
+/* Reset some default styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.manager-card {
+    border: 2px solid #f04660;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border-radius: 8px;
+    background-color: #fff7f8;
+    transition: 0.3s;
+  }
+  
+  .manager-card:hover {
+    background-color: #ffe6ea;
+  }
+  
+  .assign-manager-btn {
+    background-color: #f04660;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+/* Container styling */
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Form heading */
+h1 {
+    text-align: center;
+    color: #f04660;
+    margin-bottom: 20px;
+}
+
+/* Section headers */
+h2 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Form input and select styling */
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 20px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Focus style */
+input:focus, select:focus {
+    border-color: #f04660;
+    outline: none;
+}
+
+/* Buttons */
+button {
+    background-color: #f04660;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #d63e55;
+}
+
+/* Section for calculation results */
+#calculationResults {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    border: 1px solid #f04660;
+    margin-bottom: 20px;
+}
+
+/* Preview section styling */
+#eventPreview {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    border: 1px solid #f04660;
+    margin-bottom: 20px;
+}
+
+/* Text styling inside preview */
+#eventPreview p {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* Additional space between input fields */
+label {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Remove select dropdown outline */
+select {
+    outline: none;
+}

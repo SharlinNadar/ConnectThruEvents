@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - ConnectThroughEvents</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div class="d-flex">
+        <button class="btn btn-light d-md-none sidebar-toggle" onclick="toggleSidebar()">☰</button>        <!-- Sidebar -->
+        <nav class="bg-dark text-white sidebar p-3">
+            <h2 class="text-center">Event Portal</h2>
+            <button class="btn btn-close d-md-none" onclick="toggleSidebar()">×</button>
+            <ul class="nav flex-column ">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="events.html"></i>Events</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="tickets.html">Tickets</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="users.html">Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="event-managers.html">Event Managers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="messages.html">Messages</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="publish.html">Publish Events</a>
+                </li>
+                <li class="nav-item">
+                    <button id="logout-btn" class="btn btn-danger">Logout</button>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="content p-4 flex-grow-1">
+            <!-- Header -->
+            <header class="d-flex justify-content-between align-items-center mb-4">
+                <h1>Events</h1>
+                <div class="d-flex align-items-center">
+                    <input type="text" class="form-control me-2" placeholder="Search for event, vendor, etc.">
+                    <button class="btn btn-primary">Search</button>
+                </div>
+                <div class="ms-3">
+                    <span class="me-2">Admin</span>
+                    <img src="https://via.placeholder.com/40" class="rounded-circle" alt="Profile">
+                </div>
+            </header>
+
+            <!-- Overview -->
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    <div class="p-3 bg-light border rounded text-center">
+                        <h3>1,000</h3>
+                        <p>Total Events</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 bg-light border rounded text-center">
+                        <h3>900</h3>
+                        <p>Completed Events</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 bg-light border rounded text-center">
+                        <h3>100</h3>
+                        <p>In Process</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event Table -->
+            <div>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div>
+                        <button class="btn btn-primary">Create Event</button>
+                        <button class="btn btn-secondary">Advanced Search</button>
+                    </div>
+                    <div>
+                        <select class="form-select me-2" style="width: auto; display: inline;">
+                            <option value="">Filter by Date</option>
+                            <option value="today">Today</option>
+                            <option value="week">Last 7 Days</option>
+                            <option value="month">This Month</option>
+                        </select>
+                        <button class="btn btn-outline-primary">Apply</button>
+                    </div>
+                </div>
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Event Name</th>
+                            <th>Location</th>
+                            <th>Time</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>ConnectThrough Workshop</td>
+                            <td>Los Angeles</td>
+                            <td>10:00 AM</td>
+                            <td>21 Jan 2025</td>
+                            <td>
+                                <button class="btn btn-sm btn-primary">Edit</button>
+                                <button class="btn btn-sm btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                        <!-- Add more rows dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="admin.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>

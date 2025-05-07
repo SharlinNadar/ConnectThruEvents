@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Manager Profile</title>
+    <link rel="stylesheet" href="event-manager-profile.css">
+    <script>
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const managerId = urlParams.get('manager');
+            
+            // Dynamically populate the manager's profile based on managerId
+            if (managerId == 1) {
+                document.getElementById("manager-name").textContent = "Jane Doe";
+                document.getElementById("manager-image").src = "manager1.jpg"; // Placeholder image
+                document.getElementById("manager-description").textContent = "Jane is a highly skilled corporate event manager with over 5 years of experience.";
+                document.getElementById("manager-events").innerHTML = "<h3>Corporate Summit 2023</h3><p>Date: January 25, 2023</p><p>Location: London Convention Center</p>";
+            } else if (managerId == 2) {
+                document.getElementById("manager-name").textContent = "John Smith";
+                document.getElementById("manager-image").src = "manager2.jpg"; // Placeholder image
+                document.getElementById("manager-description").textContent = "John is a seasoned event manager specializing in corporate events with 7 years of experience.";
+                document.getElementById("manager-events").innerHTML = "<h3>Tech Expo 2023</h3><p>Date: March 15, 2023</p><p>Location: New York City</p>";
+            }
+        }
+
+        // Redirect to Step 2 of create.html after assigning the manager
+        function assignManager() {
+            const managerId = new URLSearchParams(window.location.search).get('manager');
+            window.location.href = `create.html#step-2&manager=${managerId}`;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">ConnectThroughEvents</div>
+        <nav>
+            <ul>
+                <li><a href="javascript:void(0);" onclick="window.history.back()">Back</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="profile-card">
+        <div class="profile-header">
+            <img id="manager-image" src="profile-placeholder.jpg" alt="Profile Picture">
+            <h1 id="manager-name">Manager Name</h1>
+            <p id="manager-id">Manager ID: </p>
+        </div>
+        <div class="profile-details">
+            <div class="stats">
+                <div class="stat">
+                    <h3>30</h3>
+                    <p>Events Managed</p>
+                </div>
+                <div class="stat">
+                    <h3>98%</h3>
+                    <p>Success Rate</p>
+                </div>
+                <div class="stat">
+                    <h3>12</h3>
+                    <p>Years Experience</p>
+                </div>
+            </div>
+
+            <div class="about">
+                <h2>About Me</h2>
+                <p id="manager-description">Details about the event manager...</p>
+            </div>
+
+            <div class="events">
+                <h2>Recent Events</h2>
+                <div id="manager-events">
+                    <!-- Dynamic event data here -->
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 ConnectThroughEvents. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Manager Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+    <script src="auth.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">ConnectThruEvents</div>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="event-history.html">Event History</a></li>
+                <li><a href="contact-admin.html">Contact Admin</a></li>
+                <li><button id="logout-btn" class="btn btn-danger">Logout</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Overview Section -->
+        <section class="overview">
+            <h2>Welcome, <span id="manager-name">[Manager Name]</span></h2>
+            <div class="cards">
+                <div class="card">
+                    <h3 id="upcoming-events-count">0</h3>
+                    <p>Upcoming Events</p>
+                    <a href="event-details.html">View Events</a>
+                </div>
+                <div class="card">
+                    <h3 id="pending-tasks-count">0</h3>
+                    <p>Pending Tasks</p>
+                    <a href="task-management.html">Manage Tasks</a>
+                </div>
+    
+            </div>
+        </section>
+
+        <!-- Event Calendar Section -->
+        <section class="event-calendar">
+            <h2>Event Calendar</h2>
+            <div id="calendar" class="calendar-container">
+                <!-- Calendar will be rendered here -->
+            </div>
+        </section>
+
+        <!-- Notifications Section -->
+        <section class="notifications">
+            <h2>Notifications</h2>
+            <ul id="notifications-list">
+                <li>Loading notifications...</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ConnectThroughEvents. All rights reserved.</p>
+    </footer>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

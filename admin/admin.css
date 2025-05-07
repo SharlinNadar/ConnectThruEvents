@@ -1,0 +1,199 @@
+/* General styles */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f6f9;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #34495E;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.sidebar.show {
+    left: 0; /* Move sidebar to visible position when toggled */
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #2C3E50;
+}
+
+.sidebar h2 {
+    font-size: 22px;
+    margin: 0;
+}
+
+.sidebar .btn-close {
+    font-size: 30px;
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Navigation Links */
+.sidebar .nav {
+    padding: 20px 0;
+    flex-grow: 1;
+}
+
+.sidebar .nav-link {
+    color: #ECF0F1;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s, padding-left 0.3s;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #1ABC9C;
+    color: white;
+    padding-left: 30px;
+}
+
+/* Content Area */
+.content {
+    margin-left: 250px;
+    padding: 20px;
+    transition: margin-left 0.3s ease-in-out;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+.content header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.content header h1 {
+    font-size: 24px;
+    margin: 0;
+    color: #34495E;
+}
+
+.content header .search-bar {
+    display: flex;
+    align-items: center;
+}
+
+/* Mobile-First Responsive Design */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 70px; /* Collapse sidebar on medium screens */
+    }
+
+    .content {
+        margin-left: 70px; /* Adjust content margin */
+    }
+
+    .sidebar h2 {
+        font-size: 16px;
+        padding: 10px 0;
+    }
+
+    .sidebar .nav-link {
+        font-size: 14px;
+        padding-left: 10px;
+        text-align: center; /* Align icons or text center */
+    }
+
+    .content header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .content header .search-bar {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+/* Mobile screens (max-width 768px) */
+@media (max-width: 768px) {
+    /* Sidebar */
+    .sidebar {
+        width: 0; /* Hide sidebar by default */
+        position: absolute;
+        top: 0;
+        left: -250px; /* Off-screen */
+    }
+
+    .content {
+        margin-left: 0; /* Adjust content margin */
+    }
+
+    /* Show sidebar on toggle */
+    .sidebar.show {
+        width: 250px;
+        left: 0;
+    }
+
+    /* Ensure header content is stacked */
+    .content header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .content header .search-bar {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .content header .btn {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    /* Analytics cards stacked */
+    .analytics .card {
+        flex: 1 1 100%; /* Stack cards vertically */
+    }
+
+    /* Sidebar toggle button */
+    .sidebar .nav-link.menu {
+        display: block;
+        font-size: 20px;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    /* Hide sidebar links for mobile */
+    .sidebar .nav-link:not(.menu) {
+        display: none;
+    }
+
+    /* Show sidebar links when active */
+    .sidebar.show .nav-link:not(.menu) {
+        display: flex;
+    }
+
+    /* Add a transition effect */
+    .sidebar .nav-link {
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* Responsive navigation toggle */
+    .sidebar .nav-item:last-child {
+        margin-top: 20px;
+        padding-bottom: 20px;
+    }
+}

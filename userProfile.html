@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile Dashboard - ConnectThruEvents</title>
+    <link rel="stylesheet" href="userProfile.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="d-flex" id="wrapper">
+        <div class="bg-dark text-white p-3" id="sidebar-wrapper">
+            <h3 class="text-center">ConnectThruEvents</h3>
+            <ul class="nav flex-column">
+                <li class="nav-item"><a class="nav-link text-white" href="#">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="exp.html">Explore Events</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="create-events.html">Create Events</a></li>
+                <li class="nav-item">
+                    <!-- Logout Button -->
+                    <button id="logout-btn" class="btn btn-danger w-100 mt-2">Logout</button>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper" class="w-100">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container-fluid">
+                    <button class="btn btn-dark" id="menu-toggle">&#9776;</button>
+                    <span class="navbar-brand ms-3">Profile Dashboard</span>
+                </div>
+            </nav>
+
+            <!-- Profile Header -->
+            <div class="container mt-4">
+                <div class="card p-4 shadow">
+                    <div class="row align-items-center">
+                        <div class="col-md-3 text-center">
+                            <img src="https://via.placeholder.com/150" alt="Profile Picture" class="rounded-circle mb-3" id="profile-pic">
+                        </div>
+                        <div class="col-md-9">
+                            <h2 id="fullName">Loading...</h2>
+                            <p id="role">Loading...</p>
+                            <p><strong>Contact:</strong> <span id="contact">Loading...</span></p>
+                            <p><strong>Email:</strong> <span id="email">Loading...</span></p>
+                            <p><strong>Location:</strong> <span id="location">Loading...</span></p>
+                            <p><strong>Bio:</strong> <span id="bio">Loading...</span></p>
+                            <p><strong>LinkedIn:</strong> <a href="#" id="linkedin" target="_blank">Loading...</a></p>
+                            <p><strong>Twitter:</strong> <a href="#" id="twitter" target="_blank">Loading...</a></p>
+                            <!-- Update Button -->
+                            <button type="button" class="btn btn-primary mt-3" onclick="toggleUpdateForm()">Update Profile</button>
+                        </div>
+                    </div>
+
+                    <!-- Event Tabs -->
+                    <div class="container mt-4">
+                        <ul class="nav nav-tabs" id="profileTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="enrolled-tab" data-bs-toggle="tab" data-bs-target="#enrolled-events" type="button" role="tab">Enrolled Events</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <!-- Changed "Completed Events" to "Favorite Events" -->
+                                <button class="nav-link" id="favorite-tab" data-bs-toggle="tab" data-bs-target="#favorite-events" type="button" role="tab">Favorite Events</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="created-tab" data-bs-toggle="tab" data-bs-target="#events-created" type="button" role="tab">Events Created</button>
+                            </li>
+                        </ul>
+                        <div class="tab-content p-4">
+                            <div class="tab-pane fade show active" id="enrolled-events" role="tabpanel">Loading Enrolled Events...</div>
+                            <!-- Changed "Completed Events" to "Favorite Events" -->
+                            <div class="tab-pane fade" id="favorite-events" role="tabpanel">Loading Favorite Events...</div>
+                            <div class="tab-pane fade" id="events-created" role="tabpanel">Loading Created Events...</div>
+                        </div>
+                    </div>
+
+                    <!-- Update Form (Initially Hidden) -->
+                    <div id="updateProfileForm" class="mt-4" style="display: none;">
+                        <h4>Update Profile</h4>
+                        <form id="profileForm" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="profilePicInput" class="form-label">Profile Picture</label>
+                                <input type="file" class="form-control" id="profilePicInput" accept="image/*">
+                            </div>
+                            <div class="mb-3">
+                                <label for="fullNameInput" class="form-label">Full Name</label>
+                                <input type="text" class="form-control" id="fullNameInput" placeholder="Enter full name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="contactInput" class="form-label">Contact</label>
+                                <input type="text" class="form-control" id="contactInput" placeholder="Enter contact number">
+                            </div>
+                            <div class="mb-3">
+                                <label for="locationInput" class="form-label">Location</label>
+                                <input type="text" class="form-control" id="locationInput" placeholder="Enter location">
+                            </div>
+                            <div class="mb-3">
+                                <label for="bioInput" class="form-label">Bio</label>
+                                <textarea class="form-control" id="bioInput" placeholder="Enter bio"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="linkedinInput" class="form-label">LinkedIn</label>
+                                <input type="text" class="form-control" id="linkedinInput" placeholder="Enter LinkedIn profile URL">
+                            </div>
+                            <div class="mb-3">
+                                <label for="twitterInput" class="form-label">Twitter</label>
+                                <input type="text" class="form-control" id="twitterInput" placeholder="Enter Twitter profile URL">
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="updateUserProfile()">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleUpdateForm() {
+            const form = document.getElementById("updateProfileForm");
+            form.style.display = form.style.display === "none" ? "block" : "none";
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="auth.js"></script>
+    <script src="userProfile.js"></script>
+</body>
+</html>

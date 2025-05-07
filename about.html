@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="about.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <h1>About Us</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="exp.html">Events</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Section -->
+    <main>
+        <!-- Introduction -->
+        <section class="about-intro">
+            <h1 class="fade-in">About Us</h1>
+            <img src="img/logo.png" alt="About Us Image" class="about-us-image">
+            <p class="fade-in">Welcome to our platform! We are a passionate team dedicated to bringing you the best events in your city. Whether you're looking for live music, tech talks, art exhibitions, or webinars, we have something for everyone.</p>
+            <p class="fade-in">Our mission is to make it easier for you to discover amazing events happening around you. We believe in creating a space where people can connect, learn, and enjoy shared experiences.</p>
+            <a href="reg.html" class="register-btn">Register Now</a>
+        </section>
+
+        <!-- Our Team -->
+        <section class="team">
+            <h2 class="fade-in">Meet Our Team</h2>
+            <div class="team-members">
+                <!-- Team Member 1 -->
+                <div class="team-member">
+                    <img src="team1.jpg" alt="John Doe" class="team-image fade-in">
+                    <h3>John Doe</h3>
+                    <p>Founder & CEO</p>
+                    <p>John leads our team with a vision to revolutionize event discovery. He has over 10 years of experience in the tech and events industry.</p>
+                </div>
+                <!-- Team Member 2 -->
+                <div class="team-member">
+                    <img src="team2.jpg" alt="Jane Smith" class="team-image fade-in">
+                    <h3>Jane Smith</h3>
+                    <p>Event Coordinator</p>
+                    <p>Jane is the creative mind behind our event listings. She is passionate about bringing unique and engaging events to our community.</p>
+                </div>
+                <!-- Team Member 3 -->
+                <div class="team-member">
+                    <img src="team3.jpg" alt="Sam Lee" class="team-image fade-in">
+                    <h3>Sam Lee</h3>
+                    <p>Marketing Manager</p>
+                    <p>Sam handles our marketing efforts, ensuring that everyone knows about our awesome events and the impact they can have on the community.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <h2 class="fade-in">Why Choose Us</h2>
+            <div class="feature-cards">
+                <!-- Feature 1 -->
+                <div class="feature-card fade-in">
+                    <img src="feature1.jpg" alt="Feature 1" class="feature-image">
+                    <h3>Personalized Event Recommendations</h3>
+                    <p>Our platform uses intelligent algorithms to suggest events based on your interests and location, ensuring you never miss out on something you’ll love.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="feature-card fade-in">
+                    <img src="feature2.jpg" alt="Feature 2" class="feature-image">
+                    <h3>Wide Variety of Events</h3>
+                    <p>From tech conferences to art exhibitions, we cover a wide range of event types to cater to all kinds of interests. Explore events near you or online!</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="feature-card fade-in">
+                    <img src="feature3.jpg" alt="Feature 3" class="feature-image">
+                    <h3>Seamless Booking & Registration</h3>
+                    <p>Our platform makes booking and registering for events quick and easy, so you can focus on what matters most – enjoying the event!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Us -->
+        <section class="contact">
+            <div class="contact-container">
+                <h2 class="fade-in">Get In Touch</h2>
+                <p class="fade-in">If you have any questions, suggestions, or want to collaborate with us, feel free to reach out!</p>
+                
+                <form action="/submit-form" method="POST" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Your Name:</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email:</label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message:</label>
+                        <textarea id="message" name="message" required placeholder="Type your message here..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Event Explorer. All rights reserved.</p>
+    </footer>
+</body>
+</html>

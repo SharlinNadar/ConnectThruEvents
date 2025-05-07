@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event History</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">ConnectThroughEvents</div>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="contact-admin.html">Contact Admin</a></li>
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="event-history">
+            <h2>Event History</h2>
+            <div id="event-history-list" class="list-group">
+                <p>Loading completed events...</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 ConnectThroughEvents. All rights reserved.</p>
+    </footer>
+
+    <!-- Script -->
+    <script>
+        const token = localStorage.getItem("token");
+
+
+        function addToRecentEvents(title, date, location) {
+    let recentEvents = JSON.parse(localStorage.getItem("recentEvents")) || [];
+    recentEvents.push({ title, date, location });
+    localStorage.setItem("recentEvents", JSON.stringify(recentEvents));
+
+    // Show success message using SweetAlert2
+    Swal.fire({
+        icon: 'success',
+        title: 'Added to Recent Events',
+        text: `${title} has been added to your recent events.`,
+        showConfirmButton: false,
+        timer: 2000
+    });
+}
+
+
+        // Function to load completed events
+        async function loadCompletedEvents() {
+            try {
+                if (!token) {
+                    throw new Error("Token not found");
+                }
+
+                const response = await axios.get("http://localhost:5215/api/eventdetail/event-manager/completed-events", {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+
+                const eventList = document.getElementById("event-history-list");
+                eventList.innerHTML = "";
+
+                if (response.data && response.data.status === "success" && Array.isArray(response.data.completedEvents)) {
+                    if (response.data.completedEvents.length > 0) {
+                        response.data.completedEvents.forEach(event => {
+                            const eventItem = document.createElement("div");
+                            eventItem.className = "event-card list-group-item mb-3";
+                            eventItem.innerHTML = `
+                                <h3>${event.title}</h3>
+                                <p><strong>Date:</strong> ${new Date(event.date).toLocaleDateString()}</p>
+                                <p><strong>Location:</strong> ${event.location || "N/A"}</p>
+                                <p><strong>Status:</strong> ${event.status}</p>
+                                <button class="btn" onclick="addToRecentEvents('${event.title}', '${new Date(event.date).toLocaleDateString()}', '${event.location || "N/A"}')">Add to Recent Events</button>
+                            `;
+                            eventList.appendChild(eventItem);
+                        });
+                    } else {
+                        eventList.innerHTML = "<p>No completed events found.</p>";
+                    }
+                } else {
+                    eventList.innerHTML = "<p>Unexpected response format.</p>";
+                    console.error("Unexpected response format:", response.data);
+                }
+            } catch (error) {
+                console.error("Error loading completed events:", error.response?.data || error.message, error);
+                const eventList = document.getElementById("event-history-list");
+                eventList.innerHTML = `<p>Error loading completed events: ${error.response?.data?.message || error.message}</p>`;
+            }
+        }
+
+        // Load events on page load
+        loadCompletedEvents();
+    </script>
+</body>
+</html>

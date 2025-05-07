@@ -1,0 +1,179 @@
+/* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Header */
+.header {
+    background-color: #f04660;
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.logo-div{
+    display: flex;
+    align-items: center;
+}
+.logo{
+    height: 80px;
+    margin-left: 8px;
+}
+.name{
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+}
+.name p{
+    color: var(--clr-white);
+    font-size: 1.15rem;
+}
+
+.header h1 {
+    font-size: 28px;
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav a:hover,
+.nav a.active {
+    text-decoration: underline;
+    color: #fffde7;
+}
+
+/* Hero Section */
+.hero {
+    background: #ffe8ec;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+    color: #f04660;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Services Grid */
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 60px 40px;
+    background-color: #fff;
+}
+
+.service {
+    background-color: #fff9f9;
+    border: 1px solid #ffe1e5;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.service h3 {
+    color: #f04660;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.service p {
+    color: #666;
+    font-size: 15px;
+}
+
+/* Additional Content */
+.additional-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 60px 40px;
+    background-color: #fff0f4;
+}
+
+.content-box {
+    flex: 1;
+    min-width: 300px;
+    background-color: #ffffff;
+    border: 1px solid #ffe1e5;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+.content-box h2 {
+    color: #f04660;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.content-box p, .content-box ul {
+    color: #444;
+    font-size: 16px;
+}
+
+.content-box ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f04660;
+    color: white;
+    font-size: 14px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .header,
+    .hero,
+    .services,
+    .additional-content {
+        padding: 30px 20px;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-top: 10px;
+    }
+}
